@@ -1,0 +1,13 @@
+# Python / Django
+__pycache__/
+*.pyc
+db.sqlite3
+
+# Virtual env
+.venv/
+
+# Static builds (recreated on deploy)
+staticfiles/
+
+# Environment / secrets
+.env
