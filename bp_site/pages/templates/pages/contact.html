@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block title %}Contact | BP Heating & Plumbing{% endblock %}
+
+{% block content %}
+<section class="py-6">
+  <h1 class="text-3xl font-bold mb-2 text-[#2156B1]">Contact Us</h1>
+<div class="w-14 h-1 bg-gradient-to-r from-[#1196E3] via-[#10B3B8] to-[#E67817] mb-6 rounded-full"></div>
+
+
+
+  <!-- Two-column layout -->
+  <div class="grid gap-8 lg:grid-cols-3">
+    <!-- Contact Card -->
+    <div class="lg:col-span-2 bg-white rounded-xl shadow-md p-6">
+      <h2 class="text-xl font-semibold mb-4">Get in touch</h2>
+
+      <div class="grid sm:grid-cols-2 gap-6">
+        <div>
+          <p class="text-sm text-gray-500 mb-1">Phone</p>
+          <p class="text-lg font-semibold text-[#2156B1]">07777998381</p>
+          <p class="text-xs text-gray-500 mt-1">Emergency callouts 24/7</p>
+        </div>
+        <div>
+          <p class="text-sm text-gray-500 mb-1">Service Area</p>
+          <p class="text-gray-700">London & surrounding areas</p>
+        </div>
+        <div>
+          <p class="text-sm text-gray-500 mb-1">Email</p>
+          <p class="text-gray-700">info@bpheatingplumbing.co.uk</p>
+        </div>
+        <div>
+          <p class="text-sm text-gray-500 mb-1">Company</p>
+          <p class="text-gray-700">BP Heating &amp; Plumbing Ltd</p>
+        </div>
+      </div>
+
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="tel:07777998381" class="btn btn-primary btn-lg">
+  Call Now
+</a>
+<a href="/services/" class="btn btn-outline btn-lg">
+  View Services
+</a>
+
+      </div>
+    </div>
+
+    <!-- Quick Help / FAQs -->
+    <aside class="bg-white rounded-xl shadow-md p-6">
+      <h3 class="text-lg font-semibold mb-4">Quick help</h3>
+      <ul class="space-y-3 text-sm text-gray-700">
+        <li class="flex items-start gap-2">
+          <span class="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-[#E67817]"></span>
+          Boiler lost pressure — try topping up via the filling loop. If unsure, call us.
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-[#1196E3]"></span>
+          No hot water — check the programmer is on and thermostat set above room temp.
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-[#10B3B8]"></span>
+          Leak detected — turn off the stopcock, place a bowl, and call our emergency line.
+        </li>
+      </ul>
+
+      <div class="mt-6 p-4 bg-[#1196E3]/10 rounded-lg">
+        <p class="text-sm text-gray-700">
+          For emergencies, the fastest way to reach us is by phone:
+          <span class="font-semibold text-[#2156B1]">07777998381</span>
+        </p>
+      </div>
+    </aside>
+  </div>
+</section>
+{% endblock %}
+

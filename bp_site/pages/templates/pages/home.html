@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}Home | BP Heating & Plumbing{% endblock %}
+
+{% block content %}
+
+<section class="relative overflow-hidden rounded-xl shadow-md">
+  
+  <div class="bg-gradient-to-r from-[#1196E3] via-[#10B3B8] to-[#E67817]">
+    <div class="max-w-5xl mx-auto px-6 py-16 text-white">
+      <h1 class="text-4xl font-extrabold leading-tight">
+        Reliable Heating &amp; Plumbing, 24/7
+      </h1>
+      <p class="mt-3 max-w-2xl text-white/90">
+        Gas Safe Registered engineers for installs, servicing, and emergency repairs across London.
+      </p>
+
+      <div class="mt-8 flex flex-wrap gap-4">
+  <a href="/contact/" class="btn btn-primary btn-lg">
+    Book an Engineer
+  </a>
+  <a href="/services/" class="btn btn-outline btn-lg text-white border-white hover:bg-white/10">
+    View Services
+  </a>
+</div>
+
+    </div>
+  </div>
+
+
+  <div class="bg-white">
+    <div class="max-w-5xl mx-auto px-6 py-4 grid gap-4 sm:grid-cols-3 text-sm text-gray-700">
+      <div class="flex items-center gap-3">
+        <span class="inline-block h-2.5 w-2.5 rounded-full bg-[#E67817]"></span>
+        Gas Safe Registered
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="inline-block h-2.5 w-2.5 rounded-full bg-[#1196E3]"></span>
+        24/7 Emergency Callouts
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="inline-block h-2.5 w-2.5 rounded-full bg-[#10B3B8]"></span>
+        Upfront Pricing &amp; Invoices
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+{% endblock %}
+
+
+
+
