@@ -6,156 +6,156 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{% block title %}BP Heating & Plumbing{% endblock %}</title>
 
-   
     <script src="https://cdn.tailwindcss.com"></script>
-    
 
-<style type="text/tailwindcss">
-  @layer components {
-    .btn { @apply inline-flex items-center justify-center rounded-lg px-5 py-3 font-semibold shadow-sm transition; }
-    .btn-lg { @apply px-6 py-3 text-base; }
-    .btn-sm { @apply px-3 py-2 text-sm; }
+    <style type="text/tailwindcss">
+      @layer components {
+        .btn { @apply inline-flex items-center justify-center rounded-lg px-5 py-3 font-semibold shadow-sm transition; }
+        .btn-lg { @apply px-6 py-3 text-base; }
+        .btn-sm { @apply px-3 py-2 text-sm; }
 
-    .btn-primary { @apply bg-[#1196E3] text-white hover:bg-[#2156B1]; }
-    .btn-secondary { @apply bg-white text-[#2156B1] hover:bg-white/90; }
-    .btn-outline { @apply border border-gray-300 text-gray-800 hover:bg-gray-50; }
-  }
-</style>
-
-
+        .btn-primary { @apply bg-[#1196E3] text-white hover:bg-[#2156B1]; }
+        .btn-secondary { @apply bg-white text-[#2156B1] hover:bg-white/90; }
+        .btn-outline { @apply border border-gray-300 text-gray-800 hover:bg-gray-50; }
+      }
+    </style>
   </head>
 
   <body class="min-h-screen bg-gray-50 text-gray-900">
- 
     <header class="sticky top-0 z-50 bg-gradient-to-r from-white via-[#F9FAFB] to-white border-b shadow-sm backdrop-blur">
-  <nav class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-    
-    <a href="/" class="flex items-center gap-3">
-      {% load static %}
-      <img src="{% static 'img/Logo.jpg' %}" alt="BP Heating & Plumbing" class="h-10 w-auto rounded" />
-      <div class="leading-tight">
-        <h1 class="text-lg sm:text-xl font-extrabold tracking-tight bg-gradient-to-r from-[#1196E3] via-[#10B3B8] to-[#E67817] text-transparent bg-clip-text">
-          BP Heating &amp; Plumbing
-        </h1>
-        <p class="text-[11px] text-gray-500 font-medium uppercase tracking-wide">
-          Install • Service • Repair
-        </p>
-      </div>
-    </a>
-
-    
-    <div class="hidden md:flex items-center gap-8 text-sm font-medium">
-      <a href="/" class="{% if request.path == '/' %}text-[#2156B1] font-semibold border-b-2 border-[#1196E3]{% else %}hover:text-[#2156B1]{% endif %} pb-1 transition">
-  Home
-</a>
-<a href="/services/" class="{% if '/services' in request.path %}text-[#2156B1] font-semibold border-b-2 border-[#1196E3]{% else %}hover:text-[#2156B1]{% endif %} pb-1 transition">
-  Services
-</a>
-<a href="/contact/" class="{% if '/contact' in request.path %}text-[#2156B1] font-semibold border-b-2 border-[#1196E3]{% else %}hover:text-[#2156B1]{% endif %} pb-1 transition">
-  Contact
-</a>
-
-      <a href="tel:07777998381"
-         class="inline-flex items-center gap-2 bg-[#1196E3] hover:bg-[#2156B1] text-white px-4 py-2 rounded-lg shadow transition">
-        📞 <span class="hidden sm:inline">Call 24/7:</span> <strong>07777998381</strong>
-      </a>
-    </div>
-
- 
-    <details class="md:hidden">
-      <summary class="list-none cursor-pointer px-3 py-2 rounded border text-sm">
-        Menu
-      </summary>
-      <div class="absolute right-6 mt-2 w-48 bg-white border rounded-lg shadow p-3 space-y-2 text-sm">
-        <a href="/" class="block hover:text-[#2156B1]">Home</a>
-        <a href="/services/" class="block hover:text-[#2156B1]">Services</a>
-        <a href="/contact/" class="block hover:text-[#2156B1]">Contact</a>
-        <a href="tel:07777998381"
-           class="block text-center bg-[#1196E3] hover:bg-[#2156B1] text-white px-3 py-2 rounded-lg">
-          Call 24/7
+      <nav class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-3">
+          {% load static %}
+          <img src="{% static 'img/Logo.jpg' %}" alt="BP Heating & Plumbing" class="h-10 w-auto rounded" />
+          <div class="leading-tight">
+            <h1 class="text-lg sm:text-xl font-extrabold tracking-tight bg-gradient-to-r from-[#1196E3] via-[#10B3B8] to-[#E67817] text-transparent bg-clip-text">
+              BP Heating &amp; Plumbing
+            </h1>
+            <p class="text-[11px] text-gray-500 font-medium uppercase tracking-wide">
+              Install • Service • Repair
+            </p>
+          </div>
         </a>
-      </div>
-    </details>
-  </nav>
-</header>
+
+        <!-- Desktop nav -->
+        <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+  <a href="/" class="{% if request.path == '/' %}text-[#2156B1] font-semibold border-b-2 border-[#1196E3]{% else %}hover:text-[#2156B1]{% endif %} pb-1 transition">
+    Home
+  </a>
+
+  <a href="/services/" class="{% if '/services' in request.path %}text-[#2156B1] font-semibold border-b-2 border-[#1196E3]{% else %}hover:text-[#2156B1]{% endif %} pb-1 transition">
+    Services
+  </a>
+
+  <a href="/contact/" class="{% if '/contact' in request.path %}text-[#2156B1] font-semibold border-b-2 border-[#1196E3]{% else %}hover:text-[#2156B1]{% endif %} pb-1 transition">
+    Contact
+  </a>
+
+  {% if request.user.is_authenticated %}
+    <a href="/accounts/profile/" class="hover:text-[#2156B1]">
+      My Account
+    </a>
+    <a href="/accounts/logout/" class="hover:text-[#2156B1]">
+      Logout
+    </a>
+  {% else %}
+    <a href="/accounts/login/" class="hover:text-[#2156B1]">
+      Login
+    </a>
+    <a href="/accounts/register/" class="hover:text-[#2156B1]">
+      Register
+    </a>
+  {% endif %}
+
+  <a href="tel:07777998381"
+     class="inline-flex items-center gap-2 bg-[#1196E3] hover:bg-[#2156B1] text-white px-4 py-2 rounded-lg shadow transition">
+    📞 <span class="hidden sm:inline">Call 24/7:</span> <strong>07777998381</strong>
+  </a>
+</div>
 
 
+        <!-- Mobile menu -->
+        <details class="md:hidden">
+          <summary class="list-none cursor-pointer px-3 py-2 rounded border text-sm">
+            Menu
+          </summary>
+          <div class="absolute right-6 mt-2 w-48 bg-white border rounded-lg shadow p-3 space-y-2 text-sm">
+            <a href="/" class="block hover:text-[#2156B1]">Home</a>
+            <a href="/services/" class="block hover:text-[#2156B1]">Services</a>
+            <a href="/contact/" class="block hover:text-[#2156B1]">Contact</a>
+            <a href="tel:07777998381"
+               class="block text-center bg-[#1196E3] hover:bg-[#2156B1] text-white px-3 py-2 rounded-lg">
+              Call 24/7
+            </a>
+          </div>
+        </details>
+      </nav>
+    </header>
 
-   
     <main class="max-w-7xl mx-auto px-6 py-10">
-
       {% block content %}{% endblock %}
     </main>
 
-   
     <footer class="mt-16">
- 
-  <div class="bg-gradient-to-r from-[#2156B1] via-[#1196E3] to-[#10B3B8] text-white">
-    <div class="max-w-7xl mx-auto px-6 py-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-      
-      <div>
-        <h2 class="text-xl font-extrabold tracking-tight bg-white/20 inline-block px-2 py-1 rounded">
-          BP Heating &amp; Plumbing
-        </h2>
-        <p class="mt-3 text-white/90 text-sm">
-          Reliable, Gas Safe Registered engineers for installs, servicing, and emergency repairs.
-        </p>
-        <a href="tel:07777998381"
-           class="mt-5 inline-flex items-center gap-2 bg-white text-[#2156B1] px-4 py-2 rounded-lg font-semibold hover:bg-white/90 shadow">
-          📞 Call 24/7: 07777998381
-        </a>
-        <p class="mt-4 text-xs text-white/90">Gas Safe Registered • Upfront Pricing • London &amp; nearby</p>
+      <div class="bg-gradient-to-r from-[#2156B1] via-[#1196E3] to-[#10B3B8] text-white">
+        <div class="max-w-7xl mx-auto px-6 py-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+          <div>
+            <h2 class="text-xl font-extrabold tracking-tight bg-white/20 inline-block px-2 py-1 rounded">
+              BP Heating &amp; Plumbing
+            </h2>
+            <p class="mt-3 text-white/90 text-sm">
+              Reliable, Gas Safe Registered engineers for installs, servicing, and emergency repairs.
+            </p>
+            <a href="tel:07777998381"
+               class="mt-5 inline-flex items-center gap-2 bg-white text-[#2156B1] px-4 py-2 rounded-lg font-semibold hover:bg-white/90 shadow">
+              📞 Call 24/7: 07777998381
+            </a>
+            <p class="mt-4 text-xs text-white/90">Gas Safe Registered • Upfront Pricing • London &amp; nearby</p>
+          </div>
+
+          <div>
+            <h3 class="font-semibold mb-3">Quick Links</h3>
+            <ul class="space-y-2 text-sm">
+              <li><a class="hover:underline" href="/">Home</a></li>
+              <li><a class="hover:underline" href="/services/">Services</a></li>
+              <li><a class="hover:underline" href="/contact/">Contact</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-semibold mb-3">Services</h3>
+            <ul class="space-y-2 text-sm">
+              <li><a class="hover:underline" href="/services/">Boiler Install &amp; Servicing</a></li>
+              <li><a class="hover:underline" href="/services/">Repairs &amp; Fault Finding</a></li>
+              <li><a class="hover:underline" href="/services/">Central Heating</a></li>
+              <li><a class="hover:underline" href="/services/">Leak Detection • Power Flushing</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-semibold mb-3">Contact</h3>
+            <ul class="space-y-2 text-sm">
+              <li><span class="text-white/90">Phone:</span> <a class="hover:underline" href="tel:07777998381">07777998381</a></li>
+              <li><span class="text-white/90">Email:</span> <a class="hover:underline" href="mailto:info@bpheatingplumbing.co.uk">info@bpheatingplumbing.co.uk</a></li>
+              <li><span class="text-white/90">Hours:</span> 24/7 Emergency Callouts</li>
+              <li><span class="text-white/90">Area:</span> London &amp; surrounding</li>
+            </ul>
+          </div>
+        </div>
       </div>
 
-     
-      <div>
-        <h3 class="font-semibold mb-3">Quick Links</h3>
-        <ul class="space-y-2 text-sm">
-          <li><a class="hover:underline" href="/">Home</a></li>
-          <li><a class="hover:underline" href="/services/">Services</a></li>
-          <li><a class="hover:underline" href="/contact/">Contact</a></li>
-        </ul>
+      <div class="bg-white border-t">
+        <div class="max-w-7xl mx-auto px-6 py-4 text-xs text-gray-500 flex flex-col sm:flex-row items-center justify-between gap-2">
+          <p>© {% now "Y" %} BP Heating &amp; Plumbing Ltd — Gas Safe Registered • 24/7 Emergency Callout</p>
+          <p>
+            <a class="hover:text-[#2156B1]" href="/contact/">Privacy</a>
+            <span class="mx-1">·</span>
+            <a class="hover:text-[#2156B1]" href="/contact/">Terms</a>
+          </p>
+        </div>
       </div>
+    </footer>
 
-      
-      <div>
-        <h3 class="font-semibold mb-3">Services</h3>
-        <ul class="space-y-2 text-sm">
-          <li><a class="hover:underline" href="/services/">Boiler Install &amp; Servicing</a></li>
-          <li><a class="hover:underline" href="/services/">Repairs &amp; Fault Finding</a></li>
-          <li><a class="hover:underline" href="/services/">Central Heating</a></li>
-          <li><a class="hover:underline" href="/services/">Leak Detection • Power Flushing</a></li>
-        </ul>
-      </div>
-
-      
-      <div>
-        <h3 class="font-semibold mb-3">Contact</h3>
-        <ul class="space-y-2 text-sm">
-          <li><span class="text-white/90">Phone:</span> <a class="hover:underline" href="tel:07777998381">07777998381</a></li>
-          <li><span class="text-white/90">Email:</span> <a class="hover:underline" href="mailto:info@bpheatingplumbing.co.uk">info@bpheatingplumbing.co.uk</a></li>
-          <li><span class="text-white/90">Hours:</span> 24/7 Emergency Callouts</li>
-          <li><span class="text-white/90">Area:</span> London &amp; surrounding</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  
-  <div class="bg-white border-t">
-    <div class="max-w-7xl mx-auto px-6 py-4 text-xs text-gray-500 flex flex-col sm:flex-row items-center justify-between gap-2">
-      <p>© {% now "Y" %} BP Heating &amp; Plumbing Ltd — Gas Safe Registered • 24/7 Emergency Callout</p>
-      <p>
-        <a class="hover:text-[#2156B1]" href="/contact/">Privacy</a>
-        <span class="mx-1">·</span>
-        <a class="hover:text-[#2156B1]" href="/contact/">Terms</a>
-      </p>
-    </div>
-  </div>
-</footer>
-
-
-   
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
   </body>
 </html>
