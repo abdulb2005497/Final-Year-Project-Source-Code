@@ -5,7 +5,10 @@ from django.contrib.auth.forms import PasswordResetForm
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Profile
+from django.shortcuts import render
 
+def user_in_group(user, group_name: str) -> bool:
+    return user.groups.filter(name=group_name).exists()
 
 def login_view(request):
     if request.method == "POST":
@@ -182,13 +185,13 @@ def magic_word_check(request):
 def dashboard_router(request):
     user = request.user
 
-    if user.is_superuser or user.groups.filter(name="Admin").exists():
+    if user.is_superuser or user_in_group(user, "Admin"):
         return redirect("admin_dashboard")
 
-    if user.groups.filter(name="Plumber").exists():
+    if user_in_group(user, "Plumber"):
         return redirect("plumber_dashboard")
 
-    if user.groups.filter(name="Customer").exists():
+    if user_in_group(user, "Customer"):
         return redirect("customer_dashboard")
 
     return redirect("customer_dashboard")
@@ -196,19 +199,23 @@ def dashboard_router(request):
 
 @login_required
 def admin_dashboard(request):
-    return HttpResponse("Admin dashboard placeholder")
+    if not (request.user.is_superuser or user_in_group(request.user, "Admin")):
+        return redirect("dashboard_router")
+
+    return render(request, "accounts/admin_dashboard.html")
 
 
 @login_required
 def plumber_dashboard(request):
-    return HttpResponse("Plumber dashboard placeholder")
+    if not (user_in_group(request.user, "Plumber") or request.user.is_superuser):
+        return redirect("dashboard_router")
+
+    return render(request, "accounts/plumber_dashboard.html")
 
 
 @login_required
 def customer_dashboard(request):
-    return HttpResponse("Customer dashboard placeholder")
+    if not (user_in_group(request.user, "Customer") or request.user.is_superuser):
+        return redirect("dashboard_router")
 
-
-@login_required
-def guest_dashboard(request):
-    return HttpResponse("Guest dashboard placeholder")
+    return render(request, "accounts/customer_dashboard.html")

@@ -18,10 +18,8 @@ urlpatterns = [
     
     path("magic-word/", views.magic_word_check, name="magic_word_check"),
 
-    
     path("dashboard/", views.dashboard_router, name="dashboard_router"),
     path("dashboard/admin/", views.admin_dashboard, name="admin_dashboard"),
     path("dashboard/plumber/", views.plumber_dashboard, name="plumber_dashboard"),
     path("dashboard/customer/", views.customer_dashboard, name="customer_dashboard"),
-    path("dashboard/guest/", views.guest_dashboard, name="guest_dashboard"),
 ]

@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}BP Dashboard{% endblock %}</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style type="text/tailwindcss">
+      @layer components {
+        .btn { @apply inline-flex items-center justify-center rounded-lg px-5 py-3 font-semibold shadow-sm transition; }
+        .btn-lg { @apply px-6 py-3 text-base; }
+        .btn-sm { @apply px-3 py-2 text-sm; }
+
+        .btn-primary { @apply bg-[#1196E3] text-white hover:bg-[#2156B1]; }
+        .btn-secondary { @apply bg-white text-[#2156B1] hover:bg-white/90; }
+        .btn-outline { @apply border border-gray-300 text-gray-800 hover:bg-gray-50; }
+      }
+    </style>
+  </head>
+
+  <body class="min-h-screen bg-gray-100 text-gray-900">
+    <header class="sticky top-0 z-50 bg-white border-b shadow-sm">
+      <nav class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+        <!-- Logo / brand -->
+        <a href="/accounts/dashboard/" class="flex items-center gap-3">
+          <img src="{% static 'img/Logo.jpg' %}"
+               alt="BP Heating & Plumbing"
+               class="h-9 w-auto rounded" />
+          <div class="leading-tight">
+            <p class="text-sm font-semibold text-gray-800">
+              BP Heating &amp; Plumbing
+            </p>
+            <p class="text-xs text-gray-500">
+              Internal Dashboard
+            </p>
+          </div>
+        </a>
+
+        <!-- Desktop nav -->
+        <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+          {# Role-specific dashboard links #}
+          {% if request.user.is_superuser or "Admin" in request.user.groups.all %}
+            <a href="/accounts/dashboard/admin/"
+               class="{% if '/accounts/dashboard/admin/' in request.path %}text-[#2156B1] font-semibold border-b-2 border-[#1196E3]{% else %}hover:text-[#2156B1]{% endif %} pb-1 transition">
+              Admin dashboard
+            </a>
+          {% elif "Plumber" in request.user.groups.all %}
+            <a href="/accounts/dashboard/plumber/"
+               class="{% if '/accounts/dashboard/plumber/' in request.path %}text-[#2156B1] font-semibold border-b-2 border-[#1196E3]{% else %}hover:text-[#2156B1]{% endif %} pb-1 transition">
+              Plumber dashboard
+            </a>
+          {% elif "Customer" in request.user.groups.all %}
+            <a href="/accounts/dashboard/customer/"
+               class="{% if '/accounts/dashboard/customer/' in request.path %}text-[#2156B1] font-semibold border-b-2 border-[#1196E3]{% else %}hover:text-[#2156B1]{% endif %} pb-1 transition">
+              My dashboard
+            </a>
+          {% endif %}
+
+          {# Link back to public site home #}
+          <a href="/"
+             class="hover:text-[#2156B1] pb-1 transition">
+            Back to website
+          </a>
+
+          {# Account + logout #}
+          <span class="text-gray-600">
+            Logged in as <strong>{{ request.user.username }}</strong>
+          </span>
+          <a href="/accounts/profile/" class="hover:text-[#2156B1]">
+            My account
+          </a>
+          <a href="/accounts/logout/" class="btn btn-outline btn-sm">
+            Logout
+          </a>
+        </div>
+
+        <!-- Mobile menu -->
+        <details class="md:hidden">
+          <summary class="list-none cursor-pointer px-3 py-2 rounded border text-sm">
+            Menu
+          </summary>
+          <div class="absolute right-6 mt-2 w-56 bg-white border rounded-lg shadow p-3 space-y-2 text-sm">
+            {% if request.user.is_superuser or "Admin" in request.user.groups.all %}
+              <a href="/accounts/dashboard/admin/" class="block hover:text-[#2156B1]">
+                Admin dashboard
+              </a>
+            {% elif "Plumber" in request.user.groups.all %}
+              <a href="/accounts/dashboard/plumber/" class="block hover:text-[#2156B1]">
+                Plumber dashboard
+              </a>
+            {% elif "Customer" in request.user.groups.all %}
+              <a href="/accounts/dashboard/customer/" class="block hover:text-[#2156B1]">
+                My dashboard
+              </a>
+            {% endif %}
+
+            <a href="/" class="block hover:text-[#2156B1]">
+              Back to website
+            </a>
+            <a href="/accounts/profile/" class="block hover:text-[#2156B1]">
+              My account
+            </a>
+            <a href="/accounts/logout/" class="block text-center bg-[#1196E3] hover:bg-[#2156B1] text-white px-3 py-2 rounded-lg">
+              Logout
+            </a>
+          </div>
+        </details>
+      </nav>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-8">
+      {% block content %}{% endblock %}
+    </main>
+
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+{% extends "dashboard_base.html" %}
+{% block title %}Customer Dashboard | BP Heating & Plumbing{% endblock %}
+
+{% block content %}
+<section class="space-y-6">
+  <h1 class="text-2xl font-bold mb-2">Customer Dashboard</h1>
+  <p class="text-gray-600 mb-6 text-sm">
+    You are logged in as <strong>{{ request.user.username }}</strong> (Customer).
+  </p>
+
+  <div class="grid gap-4 md:grid-cols-2">
+    <div class="bg-white rounded-xl shadow p-4">
+      <h2 class="font-semibold mb-1 text-sm">Your Bookings</h2>
+      <p class="text-xs text-gray-600 mb-3">
+        View and manage your boiler services, repairs and installations.
+      </p>
+      <p class="text-[11px] text-gray-400">
+        (Placeholder – booking history will be implemented later)
+      </p>
+    </div>
+
+    <div class="bg-white rounded-xl shadow p-4">
+      <h2 class="font-semibold mb-1 text-sm">Account &amp; Documents</h2>
+      <p class="text-xs text-gray-600 mb-3">
+        Access invoices, certificates and account details.
+      </p>
+      <p class="text-[11px] text-gray-400">
+        (Placeholder – will be wired to real data in future sprints)
+      </p>
+    </div>
+  </div>
+</section>
+{% endblock %}
